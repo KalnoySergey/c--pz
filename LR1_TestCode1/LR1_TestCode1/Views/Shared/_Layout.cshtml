@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+
+<html lang="uk">
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - Bloomie</title>
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+    <div class="container header-content">
+
+        <a class="logo"
+           asp-controller="Home"
+           asp-action="Index">
+
+            bloomie<span>♡</span>
+
+        </a>
+
+        <nav>
+            <a href="/">Головна</a>
+            <a href="/#bouquets">Букети</a>
+            <a href="/#about">Про нас</a>
+        </nav>
+
+        <a href="/#bouquets"
+           class="header-button">
+            Замовити ♡
+        </a>
+
+    </div>
+
+</header>
+
+
+<main>
+    @RenderBody()
+</main>
+
+
+<footer class="site-footer">
+
+    <div class="container footer-content">
+
+        <div>
+            <div class="footer-logo">
+                bloomie♡
+            </div>
+
+            <p>
+                flowers made with love
+            </p>
+        </div>
+
+        <span>
+            ASP.NET Core MVC · Microsoft Azure
+        </span>
+
+    </div>
+
+</footer>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="~/js/site.js"
+        asp-append-version="true"></script>
+
+@await RenderSectionAsync("Scripts", required: false)
+
+</body>
+
+</html>

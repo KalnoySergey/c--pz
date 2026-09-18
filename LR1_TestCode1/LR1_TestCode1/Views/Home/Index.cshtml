@@ -1,0 +1,238 @@
+﻿@{
+    ViewData["Title"] = "Головна";
+}
+
+<section class="hero">
+    <div class="container hero-inner">
+
+        <div class="hero-text">
+            <span class="eyebrow">КВІТКОВА СТУДІЯ BLOOMIE</span>
+
+            <h1>
+                Квіти для
+                <span>особливих моментів</span> ♡
+            </h1>
+
+            <p>
+                Ніжні авторські букети, створені з любов’ю.
+                Обери композицію для себе або подаруй
+                комусь трохи радості.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#bouquets" class="pink-button">
+                    Обрати букет
+                </a>
+
+                <a href="#about" class="light-button">
+                    Про нас
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <div class="flower-circle">
+                🌷
+            </div>
+
+            <span class="mini-label">
+                bouquet of the day
+            </span>
+
+            <h3>Pink Dream</h3>
+
+            <p>
+                Півонії, троянди та ніжна зелень
+            </p>
+
+            <span class="price">
+                від 1 490 ₴
+            </span>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="advantages">
+    <div class="container advantages-grid">
+
+        <div>
+            <span>♡</span>
+            <h4>З любов’ю</h4>
+            <p>Кожен букет збираємо вручну.</p>
+        </div>
+
+        <div>
+            <span>✿</span>
+            <h4>Свіжі квіти</h4>
+            <p>Щоденні поставки від перевірених постачальників.</p>
+        </div>
+
+        <div>
+            <span>୨୧</span>
+            <h4>Швидка доставка</h4>
+            <p>Доставимо квіти у зручний для тебе час.</p>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="bouquets" class="bouquets-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <span>OUR FLOWERS</span>
+            <h2>Обери свій настрій</h2>
+            <p>
+                Маленькі композиції для великих почуттів.
+            </p>
+        </div>
+
+
+        <div class="bouquet-grid">
+
+            <article class="bouquet-card">
+
+                <div class="bouquet-image bouquet-one">
+                    🌸
+                </div>
+
+                <div class="bouquet-content">
+                    <span class="tag">ніжність</span>
+
+                    <h3>Sweet Peony</h3>
+
+                    <p>
+                        Ніжний букет у пастельно-рожевих відтінках.
+                    </p>
+
+                    <div class="card-bottom">
+                        <strong>1 290 ₴</strong>
+
+                        <button onclick="selectBouquet('Sweet Peony')">
+                            Обрати
+                        </button>
+                    </div>
+                </div>
+
+            </article>
+
+
+            <article class="bouquet-card">
+
+                <div class="bouquet-image bouquet-two">
+                    🌷
+                </div>
+
+                <div class="bouquet-content">
+                    <span class="tag">романтика</span>
+
+                    <h3>Pink Dream</h3>
+
+                    <p>
+                        Повітряна композиція з рожевих троянд і тюльпанів.
+                    </p>
+
+                    <div class="card-bottom">
+                        <strong>1 490 ₴</strong>
+
+                        <button onclick="selectBouquet('Pink Dream')">
+                            Обрати
+                        </button>
+                    </div>
+                </div>
+
+            </article>
+
+
+            <article class="bouquet-card">
+
+                <div class="bouquet-image bouquet-three">
+                    💐
+                </div>
+
+                <div class="bouquet-content">
+                    <span class="tag">свято</span>
+
+                    <h3>Blush Garden</h3>
+
+                    <p>
+                        Яскравий букет для особливого дня.
+                    </p>
+
+                    <div class="card-bottom">
+                        <strong>1 790 ₴</strong>
+
+                        <button onclick="selectBouquet('Blush Garden')">
+                            Обрати
+                        </button>
+                    </div>
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="recommendation-section">
+    <div class="container recommendation-box">
+
+        <div>
+            <span class="eyebrow">
+                NEED SOME HELP?
+            </span>
+
+            <h2>
+                Не знаєш, який букет обрати?
+            </h2>
+
+            <p>
+                Дозволь Bloomie підібрати ніжну композицію
+                спеціально для тебе.
+            </p>
+        </div>
+
+        <div class="recommendation-action">
+
+            <button class="pink-button"
+                    onclick="recommendBouquet()">
+                Підібрати букет ♡
+            </button>
+
+            <div id="recommendationResult">
+                Твоя рекомендація з’явиться тут ✨
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section id="about" class="about-section">
+    <div class="container about-box">
+
+        <div class="about-decoration">
+            ♡
+        </div>
+
+        <div class="about-text">
+            <span class="eyebrow">ABOUT BLOOMIE</span>
+
+            <h2>Квіти говорять замість слів</h2>
+
+            <p>
+                Bloomie — маленька квіткова студія,
+                де кожна композиція створюється індивідуально.
+                Ми любимо ніжні відтінки, природні форми
+                та моменти, які хочеться запам’ятати.
+            </p>
+        </div>
+
+    </div>
+</section>
