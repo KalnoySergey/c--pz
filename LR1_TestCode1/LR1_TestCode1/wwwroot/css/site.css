@@ -288,6 +288,11 @@ body {
         box-shadow: 0 20px 45px rgba(154, 91, 112, 0.15);
     }
 
+    .bouquet-card.is-selected {
+        border-color: #e98da8;
+        box-shadow: 0 20px 45px rgba(233, 141, 168, 0.28);
+    }
+
 .bouquet-image {
     height: 250px;
     display: flex;
