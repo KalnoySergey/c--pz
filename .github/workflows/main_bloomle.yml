@@ -12,7 +12,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     permissions:
       contents: read
 
@@ -56,36 +55,6 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_7641F758560349EF96DF14AD8A663733 }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_824C6D72DB124912A7F76A1D7AB61635 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_909EBBFC58FD42AEB1FEC223C0A98D97 }}
-
-      - name: Show Azure Account
-        run: |
-          echo "===== ACCOUNT ====="
-          az account show
-
-      - name: Show Subscription ID
-        run: |
-          echo "===== SUBSCRIPTION ID ====="
-          az account show --query id -o tsv
-
-      - name: Show Tenant ID
-        run: |
-          echo "===== TENANT ID ====="
-          az account show --query tenantId -o tsv
-
-      - name: Show Current User
-        run: |
-          echo "===== USER ====="
-          az account show --query user -o json
-
-      - name: Show Resource Groups
-        run: |
-          echo "===== RESOURCE GROUPS ====="
-          az group list --output table
-
-      - name: Show Web Apps
-        run: |
-          echo "===== WEB APPS ====="
-          az webapp list --output table
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
