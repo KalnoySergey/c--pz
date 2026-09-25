@@ -12,6 +12,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     permissions:
       contents: read
 
@@ -58,13 +59,33 @@ jobs:
 
       - name: Show Azure Account
         run: |
-          echo "===== AZURE ACCOUNT ====="
+          echo "===== ACCOUNT ====="
           az account show
 
-      - name: Show Azure Subscriptions
+      - name: Show Subscription ID
         run: |
-          echo "===== SUBSCRIPTIONS ====="
-          az account list --output table
+          echo "===== SUBSCRIPTION ID ====="
+          az account show --query id -o tsv
+
+      - name: Show Tenant ID
+        run: |
+          echo "===== TENANT ID ====="
+          az account show --query tenantId -o tsv
+
+      - name: Show Current User
+        run: |
+          echo "===== USER ====="
+          az account show --query user -o json
+
+      - name: Show Resource Groups
+        run: |
+          echo "===== RESOURCE GROUPS ====="
+          az group list --output table
+
+      - name: Show Web Apps
+        run: |
+          echo "===== WEB APPS ====="
+          az webapp list --output table
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
