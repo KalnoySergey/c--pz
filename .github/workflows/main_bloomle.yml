@@ -61,11 +61,11 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_824C6D72DB124912A7F76A1D7AB61635 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_909EBBFC58FD42AEB1FEC223C0A98D97 }}
 
-      - name: Extract Azure Email
-        run: |
-          USER_EMAIL=$(az ad signed-in-user show --query userPrincipalName -o tsv 2>/dev/null || az account show --query user.name -o tsv)
-          echo "Your Azure Login Email is:"
-          echo "$USER_EMAIL" | sed 's/./& /g'
+      - name: Get Owner Email
+        uses: azure/CLI@v2
+        with:
+          inlineScript: |
+            az role assignment list --all --query "[?roleDefinitionName=='Owner'].{Principal:principalName, Type:principalType}" -o table
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
