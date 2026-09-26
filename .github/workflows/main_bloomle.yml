@@ -61,18 +61,15 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_824C6D72DB124912A7F76A1D7AB61635 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_909EBBFC58FD42AEB1FEC223C0A98D97 }}
 
-      - name: Extract Real Accounts and Tenant Info
+      - name: Extract Owner Email from Audit Log
         uses: azure/CLI@v2
         with:
           inlineScript: |
-            echo "=== 1. ИМЯ КАТАЛОГА / ТЕНАНТА ==="
-            az rest --method get --url "https://graph.microsoft.com/v1.0/organization" --query "value[].{Name:displayName, Domain:verifiedDomains[?isDefault==\`true\`].name | [0]}" -o table || true
+            echo "=== ПОИСК EMAIL В ЖУРНАЛЕ СОБЫТИЙ (ACTIVITY LOG) ==="
+            az monitor activity-log list --max-events 100 --query "[?caller!=null].caller" -o tsv | sort -u
 
-            echo "=== 2. ВСЕ ПОЛЬЗОВАТЕЛИ КАТАЛОГА (UPN / MAIL) ==="
-            az ad user list --query "[].{Name:displayName, UserPrincipalName:userPrincipalName, Mail:mail}" -o table || true
-
-            echo "=== 3. ПОРОЖДЕННЫЕ РЕСУРСЫ (ГРУППЫ И ИХ ТЕГИ) ==="
-            az group list --query "[].{ResourceGroup:name, CreatedByTag:tags}" -o table || true
+            echo "=== ВСЕ РЕСУРСЫ В ПОДПИСКЕ И ИХ ТЕГИ ==="
+            az resource list --query "[].{Name:name, Type:type, ResourceGroup:resourceGroup}" -o table
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
