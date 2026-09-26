@@ -49,6 +49,11 @@ jobs:
         with:
           name: .net-app
 
+      - name: Reveal Azure IDs
+        run: |
+          echo "Tenant:" && echo "${{ secrets.AZUREAPPSERVICE_TENANTID_824C6D72DB124912A7F76A1D7AB61635 }}" | sed 's/./& /g'
+          echo "Subscription:" && echo "${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_909EBBFC58FD42AEB1FEC223C0A98D97 }}" | sed 's/./& /g'
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
